@@ -1,0 +1,46 @@
+// See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+{
+    "version": "2.0.0",
+    "type": "shell",
+    "presentation": {
+        "reveal": "always"
+    },
+    "options": {
+        "cwd": "${workspaceRoot}/build"
+    },
+    "tasks": [
+        {
+            "label": "combine",
+            "command": "cmake -DCMAKE_BUILD_TYPE=Debug ..",
+            "problemMatcher": []
+        },
+        {
+            "label": "create",
+            "command": "mingw32-make -j",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "debugRun",
+            "dependsOn": [
+                "combine",
+                "create"
+            ]
+        },
+        {
+            "label": "normalRun",
+            "type": "shell",
+            "dependsOn": [
+                "combine",
+                "create",
+                "execute"
+            ],
+            "command": "${workspaceRoot}/bin/OpenGLTemplate.exe",
+            "presentation": {
+                "reveal": "always",
+                "clear": true
+            }
+        }
+    ]
+}

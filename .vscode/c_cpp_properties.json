@@ -1,0 +1,38 @@
+// {
+//     "configurations": [
+//         {
+//             "name": "Linux",
+//             "includePath": [
+//                 "${workspaceFolder}/**",
+//                 "/usr/include/boost/predef/detail",
+//                 "/run/user/1000/gvfs/sftp:host=192.168.178.41,user=iot-devkit/home/iot-devkit/vscode_intelli"
+//             ],
+//             "defines": [],
+//             "compilerPath": "/usr/bin/gcc",
+//             "cStandard": "c11",
+//             "cppStandard": "c++17",
+//             "intelliSenseMode": "gcc-x64"
+//         },
+//         {
+//             "name": "RPI",
+//             "includePath": [
+//                 "${workspaceFolder}/**",
+//                 "${workspaceFolder}/.vscode_intelli/**",
+//                 "/usr/include/**"
+//             ],
+//             "browse": {
+//                 "path": [
+//                     "/home/iot-devkit/vscode_intelli"
+//                 ],
+//                 "limitSymbolsToIncludedHeaders": true,
+//                 "databaseFilename": ""
+//             },
+//             "defines": [],
+//             "compilerPath": "/usr/bin/gcc",
+//             "cStandard": "c11",
+//             "cppStandard": "c++11",
+//             "intelliSenseMode": "gcc-x64"
+//         }
+//     ],
+//     "version": 4
+// }
