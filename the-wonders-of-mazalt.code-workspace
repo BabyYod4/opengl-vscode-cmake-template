@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "the-wonders-of-mazalt",
+			"path": "."
+		}
+	],
+	"settings": {
+		"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
+	}
+}

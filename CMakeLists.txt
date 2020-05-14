@@ -6,7 +6,7 @@ set( CMAKE_PREFIX_PATH $ENV{CMAKE_PREFIX_PATH} )
 
 ## Set global variables
 #set(<<name>> "<<value>>")
-set ( PROJECT_NAME_ "OpenGLTemplate" )
+set ( PROJECT_NAME_ "twom" )
 
 ## Specify a project name
 project( ${PROJECT_NAME_} )
@@ -28,6 +28,7 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 ## Set global definitions to be used in c++
 # add_definitions(-DTEST_DEFINITION="Hello I am a global value in cmake")
 add_definitions(-DGLEW_STATIC)
+add_definitions(-D__CYGWIN__)
 
 ## Link Subdirectory 
 add_subdirectory(${PROJECT_SOURCE_DIR}/src bin)

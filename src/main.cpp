@@ -1,6 +1,13 @@
 #include <iostream>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
+#include <glew/glew.h>
+#include <glfw/glfw3.h>
+
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+
+#include <imgui/imgui.h>
+#include <imgui/imgui_impl_glfw_gl3.h>
 
 int main(void)
 {
@@ -27,13 +34,24 @@ int main(void)
       std::cout << "Error Could not initalized GLEW" << std::endl;
     }
 
+    glm::mat4 test = glm::ortho(0, 800, 0, 600, 0, 600);
+
+    ImGui::CreateContext();
+    ImGui_ImplGlfwGL3_Init(window, true);
+    ImGui::StyleColorsDark();
+
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
+        
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
+        ImGui_ImplGlfwGL3_NewFrame();
 
-        std::cout << "I Finally have normal output!" << std::endl;
+        ImGui::Text("Hello, world!");                           
+
+        ImGui::Render();
+	    ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
@@ -42,6 +60,8 @@ int main(void)
         glfwPollEvents();
     }
 
+    ImGui_ImplGlfwGL3_Shutdown();
+    ImGui::DestroyContext();
     glfwTerminate();
     return 0;
 }

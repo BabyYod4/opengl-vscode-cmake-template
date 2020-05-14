@@ -17,12 +17,13 @@
         },
         {
             "label": "create",
-            "command": "mingw32-make -j",
+            "command": "make -j4",
             "group": "build",
             "problemMatcher": []
         },
         {
             "label": "debugRun",
+            "dependsOrder": "sequence",
             "dependsOn": [
                 "combine",
                 "create"
@@ -31,12 +32,12 @@
         {
             "label": "normalRun",
             "type": "shell",
+            "dependsOrder": "sequence",
             "dependsOn": [
                 "combine",
-                "create",
-                "execute"
+                "create"
             ],
-            "command": "${workspaceRoot}/bin/OpenGLTemplate.exe",
+            "command": "../bin/twom.exe",
             "presentation": {
                 "reveal": "always",
                 "clear": true

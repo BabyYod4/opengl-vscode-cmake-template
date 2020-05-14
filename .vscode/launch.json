@@ -6,7 +6,7 @@
     "configurations": [
 
         {
-            "program": "${workspaceRoot}/bin/OpenGLTemplate.exe",
+            "program": "${workspaceRoot}/bin/twom.exe",
             "name": "C++ Launch",
             "type": "cppdbg",
             "request": "launch",
@@ -18,7 +18,7 @@
             "externalConsole": false,
             "MIMode": "gdb",
             "linux": {
-                "program": "${workspaceRoot}/bin/OpenGLTemplate.exe",
+                "program": "${workspaceRoot}/bin/twom.exe",
                 "setupCommands": [
                     {
                         "description": "Enable pretty-printing for gdb",
@@ -28,7 +28,7 @@
                 ]
             },
             "windows": {
-                "program": "${workspaceRoot}/bin/OpenGLTemplate.exe",
+                "program": "${workspaceRoot}/bin/twom.exe",
                 "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe"
             }
         }

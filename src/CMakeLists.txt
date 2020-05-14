@@ -2,19 +2,23 @@ cmake_minimum_required( VERSION 2.8 )
 
 ## Sources and headers
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR} )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../include )
+include_directories( ${PROJECT_SOURCE_DIR}/include )
 
 ## Find all source and header files to be compiled into object files
-file( GLOB_RECURSE SOURCES *.cc *.hh *.cpp *.hpp *.c *.h )
+file( GLOB_RECURSE SOURCES *.cc *.hh *.cpp *.hpp *.c *.h *.inl )
+file( GLOB_RECURSE IMGUI_SOURCES ${PROJECT_SOURCE_DIR}/lib/imgui/*.cpp )
+file( GLOB_RECURSE STB_SOURCES ${PROJECT_SOURCE_DIR}/lib/stb_image/*.cpp )
 
 ## Add Libraries
 # add_library(<<LibraryName>> SHARED IMPORTED)
 # set_property(TARGET <<LibraryName>>  PROPERTY IMPORTED_LOCATION "/path/to/lib/")
 add_library(glew STATIC IMPORTED)
-set_property(TARGET glew PROPERTY IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/../lib/glew32s.lib")
+set_property(TARGET glew PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/lib/glew32s.lib")
 
 add_library(glfw STATIC IMPORTED)
-set_property(TARGET glfw PROPERTY IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/../lib/libglfw3.a")
+set_property(TARGET glfw PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/lib/libglfw3.a")
+
+# add_library(glm STATIC ${GLM_SOURCES})
 
 
 ## Find Required Packages
@@ -40,13 +44,12 @@ set( MAIN_EXE_NAME ${PROJECT_NAME_} )
 
 
 ## 1. Compile...
-add_executable( ${MAIN_EXE_NAME} ${MAIN_SOURCE} ${SOURCES} )
+add_executable( ${MAIN_EXE_NAME} ${MAIN_SOURCE} ${SOURCES} ${IMGUI_SOURCES} ${STB_SOURCES} )
 
 
 ## 2. Link...
 target_link_libraries( ${MAIN_EXE_NAME} glew ${OPENGL_gl_LIBRARY} glfw)
 # target_link_libraries(${MAIN_EXE_NAME} <<Libraryname>> )
-
 
 ## 3. Install...
 install( TARGETS ${MAIN_EXE_NAME} RUNTIME DESTINATION bin )
