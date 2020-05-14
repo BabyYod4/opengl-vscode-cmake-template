@@ -14,7 +14,7 @@
             "cStandard": "c11",
             "cppStandard": "gnu++14",
             "intelliSenseMode": "clang-x86",
-            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+            "configurationProvider": "vector-of-bool.cmake-tools"
         }
     ],
     "version": 4

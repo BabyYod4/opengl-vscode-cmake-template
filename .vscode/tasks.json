@@ -12,7 +12,7 @@
     "tasks": [
         {
             "label": "combine",
-            "command": "cmake -DCMAKE_BUILD_TYPE=Debug .. -G \"MinGW Makefiles\" ",
+            "command": "cmake -DCMAKE_BUILD_TYPE=Debug .. -G 'MinGW Makefiles'",
             "problemMatcher": []
         },
         {
