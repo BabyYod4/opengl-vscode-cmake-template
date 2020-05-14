@@ -1,5 +1,7 @@
 # Barebone OpenGL VScode workspace using CMAKE in windows 10 (and linux)
 
+![TestImage](https://user-images.githubusercontent.com/59289792/81974765-4e9c2100-9626-11ea-8e14-0d26d3b3b2b7.png)
+
 **THIS ONLY SUPPORTS 32bit applications**
 
 Like the name suggests this VsCode workspace can be used to run `OpenGL` with `GLEW`, `GLFW`, `GLM`, `ImGui`, `stb_image` in both debug mode or normal mode. 
