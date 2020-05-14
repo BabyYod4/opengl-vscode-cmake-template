@@ -23,7 +23,7 @@ Hope you'll enjoy!
 - You need to create a `bin` and `build` folder in the workspace folder (same folder where the README.md is). 
 - You also need to install `git` on your windows pc to use the bash terminal and add it to your `PATH`
 - You also need to install `cmake` on your windows pc and add it to your `PATH`
-- You need to install MinGW with the g++, gcc packages and add it to your `PATH`. follow this [guide](https://www.youtube.com/watch?v=sXW2VLrQ3Bs) 
+- You need to install [MinGW](https://osdn.net/projects/mingw/releases/) with the g++, gcc packages and add it to your `PATH`. follow this [guide](https://www.youtube.com/watch?v=sXW2VLrQ3Bs) 
 - You need to rename the `mingw32-make.exe` in `C:\MinGW\bin` to `make.exe`
 
 ## Linux requirements
