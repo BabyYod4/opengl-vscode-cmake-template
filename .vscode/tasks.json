@@ -12,7 +12,7 @@
     "tasks": [
         {
             "label": "combine",
-            "command": "cmake -DCMAKE_BUILD_TYPE=Debug ..",
+            "command": "cmake -DCMAKE_BUILD_TYPE=Debug .. -G \"MinGW Makefiles\" ",
             "problemMatcher": []
         },
         {
@@ -37,7 +37,7 @@
                 "combine",
                 "create"
             ],
-            "command": "../bin/twom.exe",
+            "command": "../bin/opengl.exe",
             "presentation": {
                 "reveal": "always",
                 "clear": true

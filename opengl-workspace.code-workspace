@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "opengl-workspace",
+			"path": "."
+		}
+	],
+	"settings": {
+		"windows": {
+			"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
+		}
+	}
+}

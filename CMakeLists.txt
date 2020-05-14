@@ -6,7 +6,7 @@ set( CMAKE_PREFIX_PATH $ENV{CMAKE_PREFIX_PATH} )
 
 ## Set global variables
 #set(<<name>> "<<value>>")
-set ( PROJECT_NAME_ "twom" )
+set ( PROJECT_NAME_ "opengl" )
 
 ## Specify a project name
 project( ${PROJECT_NAME_} )
