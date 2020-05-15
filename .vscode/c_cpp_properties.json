@@ -1,16 +1,23 @@
 {
+    "env": {
+        "myDefaultIncludePath": ["${workspaceFolder}", "${workspaceFolder}/include/**", "${workspaceFolder}/src/**", "${workspaceFolder}/lib/**"],
+        "myCompilerPath": "C:\\MinGW\\bin\\g++.exe"
+    },
     "configurations": [
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/include/**", 
+                "${workspaceFolder}/src/**", 
+                "${workspaceFolder}/lib/**"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "C:\\MinGW\\bin\\gcc.exe",
+            "compilerPath": "C:\\MinGW\\bin\\g++.exe",
             "cStandard": "c11",
             "cppStandard": "gnu++14",
             "intelliSenseMode": "clang-x86",

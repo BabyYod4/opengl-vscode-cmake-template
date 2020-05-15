@@ -12,13 +12,17 @@
     "tasks": [
         {
             "label": "combine",
-            "command": "cmake -DCMAKE_BUILD_TYPE=Debug .. -G 'MinGW Makefiles'",
+            "command": "cmake -DCMAKE_BUILD_TYPE=Debug .. -G \"MinGW Makefiles\" ",
             "problemMatcher": []
         },
         {
             "label": "create",
-            "command": "make -j4",
-            "group": "build",
+            "command": "make -j",
+            "problemMatcher": []
+        },
+        {
+            "label": "clean",
+            "command": "rm -rf *",
             "problemMatcher": []
         },
         {
@@ -37,7 +41,7 @@
                 "combine",
                 "create"
             ],
-            "command": "../bin/opengl.exe",
+            "command": "${workspaceRoot}/bin/twom.exe",
             "presentation": {
                 "reveal": "always",
                 "clear": true
