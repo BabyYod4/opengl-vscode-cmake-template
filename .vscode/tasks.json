@@ -3,34 +3,42 @@
 {
     "version": "2.0.0",
     "type": "shell",
-    "presentation": {
-        "reveal": "always"
-    },
+    "presentation": { "reveal": "always" },
     "options": {
-        "cwd": "${workspaceRoot}/build"
+        "cwd": "${workspaceRoot}/build/windows/x64"
+        // "cwd": "${workspaceRoot}/build/windows/x86"
+        // "cwd": "${workspaceRoot}/build/linux/x64"
+        // "cwd": "${workspaceRoot}/build/linux/x86"
     },
     "tasks": [
+
         {
-            "label": "combine",
-            "command": "cmake -DCMAKE_BUILD_TYPE=Debug .. -G \"MinGW Makefiles\" ",
+            "label": "cmakeTask",
+            "linux": { "command": "cmake -DCMAKE_BUILD_TYPE=Debug ../../.. -G \"Unix Makefiles\" " },
+            "windows": { "command": "cmake -DCMAKE_BUILD_TYPE=Debug ../../.. -G 'MinGW Makefiles' " },
             "problemMatcher": []
         },
         {
-            "label": "create",
-            "command": "make -j",
+            "label": "makeTask",
+            "linux": { "command": "make -j$(nproc)" },
+            "windows": { "command": "mingw32-make -j $(Get-WmiObject Win32_ComputerSystem).NumberOfProcessors" },
             "problemMatcher": []
         },
+
         {
-            "label": "clean",
-            "command": "rm -rf *",
+            "label": "cleanTask",
+            "linux":{ "command": "rm -rf *" },
+            "windows":{ "command": "Remove-Item * -Recurse -Force -Confirm:$false" },
             "problemMatcher": []
         },
+
+
         {
             "label": "debugRun",
             "dependsOrder": "sequence",
             "dependsOn": [
-                "combine",
-                "create"
+                "cmakeTask",
+                "makeTask"
             ]
         },
         {
@@ -38,10 +46,12 @@
             "type": "shell",
             "dependsOrder": "sequence",
             "dependsOn": [
-                "combine",
-                "create"
+                "cmakeTask",
+                "makeTask",
+                "executeTask"
             ],
-            "command": "${workspaceRoot}/bin/twom.exe",
+            "linux": { "command": "cd bin && ./lucidy-engine" },
+            "windows": { "command": "cd bin; ./lucidy-engine.exe" },
             "presentation": {
                 "reveal": "always",
                 "clear": true

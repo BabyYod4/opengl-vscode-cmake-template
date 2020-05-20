@@ -1,8 +1,4 @@
 {
-    "env": {
-        "myDefaultIncludePath": ["${workspaceFolder}", "${workspaceFolder}/include/**", "${workspaceFolder}/src/**", "${workspaceFolder}/lib/**"],
-        "myCompilerPath": "C:\\MinGW\\bin\\g++.exe"
-    },
     "configurations": [
         {
             "name": "Win32",
@@ -10,18 +6,43 @@
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/include/**", 
                 "${workspaceFolder}/src/**", 
-                "${workspaceFolder}/lib/**"
+                "${workspaceFolder}/lib/**",
+                "${workspaceFolder}/.vscode/intelli_fix_cpp/c_cpp_includes/**"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "C:\\MinGW\\bin\\g++.exe",
             "cStandard": "c11",
-            "cppStandard": "gnu++14",
-            "intelliSenseMode": "clang-x86",
-            "configurationProvider": "vector-of-bool.cmake-tools"
+            "cppStandard": "gnu++11",
+            "intelliSenseMode": "gcc-x64",
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
+        },
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/include/**", 
+                "${workspaceFolder}/src/**", 
+                "${workspaceFolder}/lib/**",
+                "${workspaceFolder}/.vscode/intelli_fix_cpp/c_cpp_includes/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "gnu++11",
+            "intelliSenseMode": "gcc-x64",
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            }
         }
     ],
     "version": 4

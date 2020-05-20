@@ -1,34 +1,42 @@
-#include "engine/window_context.hpp"
+#include <LucidyEngine/generic/graphic_lib.hpp>
 
-#include <imgui/imgui.h>
-#include <imgui/imgui_impl_glfw_gl3.h>
+#include <LucidyEngine/scene/scene_controller.hpp>
+#include <LucidyEngine/window/normal_window.hpp>
+#include <scenes/example_scene.hpp>
 
 int main(void)
 {
- 
-    WindowContext window( WindowContextSettings{1280, 720, "The Wonders of Mazalt", 1, {4,5} } );
+    ly::MessageBus messageBus;
 
-    ImGui::CreateContext();
-    window.claim([](window_tp* w){ ImGui_ImplGlfwGL3_Init(w, true); });
-    ImGui::StyleColorsDark();
+    ly::NormalWindow window( ly::WindowSettings{1280, 720, "The Wonders of Mazalt", 1, false} );
+    ly::DebugWindow debugWindow( window );
 
-    /* Loop until the user closes the window */
+    window.open();
+    ly::initGraphicLib();
+    debugWindow.open();
+
+    ly::SceneController controller( debugWindow );
+    ly::ExampleReceiverScene scene1( debugWindow, &messageBus, "Scene text 1" );
+    ly::ExampleSenderScene scene2( debugWindow, &messageBus, "Scene text 2" );
+    ly::ExampleMouseScene scene3( window, debugWindow );
+
+    controller.add( "scene1", &scene1 );
+    controller.add( "scene2", &scene2 );
+    controller.add( "scene3", &scene3 );
+    controller.select( "scene2" );
+
     while (!window.isClosed())
     {
         window.clear();
-        ImGui_ImplGlfwGL3_NewFrame();
+        debugWindow.clear();
 
-        ImGui::Text("Hello, world!");                           
+        controller.run();
 
-        ImGui::Render();
-	    ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
-
+        debugWindow.flush();
         window.flush();
+
+        messageBus.notify();
     }
 
-    ImGui_ImplGlfwGL3_Shutdown();
-    ImGui::DestroyContext();
     return 0;
 }
-
-
