@@ -108,7 +108,7 @@ All done!, you can test the application by pressing `f6`.
 All done!, you can test the application by pressing `f6`. 
 
 ## WSL (Windows subsystem for Linux)
-This is quite a big quide so perform these steps in order, be sure you have configured your workspace as a 64bit Linux build (see `Generic setup`):
+This is quite a big quide so perform these steps in order, be sure you have configured your workspace as a 64bit Linux build (see `Generic setup`). Also keep in mind you are stuck with shitty meso drivers for now (Microsoft is making an update in WSL2), so be sure to run in OpenGL 3.3 Core or 3.2 Compat mode. 
 
 1. Join windows insider program but chose the **Slow** option to not break your system: [guide](https://www.youtube.com/watch?v=7N8D8LR-qak)
 2. Open powershell and run the following commands: 
